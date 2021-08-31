@@ -12,10 +12,28 @@ public class Dictionary {
 
 	private static final String FILE_NAME = "dicionario.txt";
 
+	private static Dictionary instance;
+	
 	// Lista para guardar as palavras
 	private List<String> words = new ArrayList<>();
 	
+	// Construtor que ao criar o objeto carrega a lista de palavras atravéz do 'LOAD'
+	private Dictionary() {
+		load();
+	}
+	
+	// Permite que o Objeto seja criada apenas uma vez ultilizando o padrão singleton
+	public static Dictionary getInstance() {
+		
+		if(instance == null) {
+			instance = new Dictionary();
+		}
+		
+		return instance;
+	}
+	
 	// Método para ler e carregar o arquivo txt em uma lista de palavras
+
 	private void load() {
 		
 		// Modo para ler um arquivo localizado dentro do projeto, ultilizamos o try para fechar automaticamente o scanner 'Closed'
