@@ -7,10 +7,10 @@ public class Game {
 	// Método para iniciar o jogo
 	public void start() {
 	
-		Word word = new Word("casa");
-		// Entrada de dados deve ser em Letra maiuscula
-		word.hasChar('A');
-		word.hasChar('C');
+		Word word = new Word("Leticia");
+		// Entrada de dados deve ser em Letra maiúscula
+		word.hasChar('T');
+		word.hasChar('E');
 		
 		// Jogo acabou
 		System.out.println(word.discovered());
