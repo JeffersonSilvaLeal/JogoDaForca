@@ -22,7 +22,7 @@ public class Dictionary {
 		load();
 	}
 	
-	// Permite que o Objeto seja criada apenas uma vez ultilizando o padrão singleton
+	// Permite que o Objeto seja criada apenas uma vez ultilizando o padrão singletono    
 	public static Dictionary getInstance() {
 		
 		if(instance == null) {
