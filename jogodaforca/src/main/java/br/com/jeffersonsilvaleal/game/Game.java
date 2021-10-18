@@ -3,14 +3,13 @@ package br.com.jeffersonsilvaleal.game;
 import java.util.HashSet;
 import java.util.Set;
 
+import br.com.jeffersonsilvaleal.core.Config;
 import br.com.jeffersonsilvaleal.core.Dictionary;
 import br.com.jeffersonsilvaleal.core.InvalidCharacterException;
 import br.com.jeffersonsilvaleal.core.Word;
 import br.com.jeffersonsilvaleal.ui.UI;
 
 public class Game {
-
-	private static final int MAX_ERRORS = 5;
 
 	// Método para iniciar o jogo
 	public void start() {
@@ -31,6 +30,9 @@ public class Game {
 		// Controla o número de erros
 		int errorcount = 0;
 
+		int maxErrors = Integer.parseInt(Config.get("maxErrors"));
+		UI.print("Voçê pode errar no máximo " + maxErrors + " vezes");
+		
 		// Começa o jogo
 		while (true) {
 			UI.print(word);
@@ -53,8 +55,8 @@ public class Game {
 				} else {
 					errorcount++;
 
-					if (errorcount < MAX_ERRORS) {
-						UI.print("Voçê errou!! Voçê ainda pode errar " + (MAX_ERRORS - errorcount) + " vezes");
+					if (errorcount < maxErrors) {
+						UI.print("Voçê errou!! Voçê ainda pode errar " + (maxErrors - errorcount) + " vezes");
 					}
 				}
 
@@ -68,7 +70,7 @@ public class Game {
 				}
 				
 				// Quantidade de tentativa foi excedeu
-				if (errorcount == MAX_ERRORS) {
+				if (errorcount == maxErrors) {
 					UI.print("Voçê perdeu o jogo: a palavra correta era: " + word.getOriginalWord());
 					UI.print("Fim de jogo");
 					break;
