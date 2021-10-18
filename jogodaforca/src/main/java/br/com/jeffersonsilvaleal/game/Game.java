@@ -18,6 +18,8 @@ public class Game {
 
 		// Sorteia uma palavra e retorna a mesma
 		Dictionary dictionary = Dictionary.getInstance();
+		UI.print("Dicionário usado: " + dictionary.getName());
+		
 		// Retorna a palavra que o usúario tera que descobrir
 		Word word = dictionary.nextWord();
 
